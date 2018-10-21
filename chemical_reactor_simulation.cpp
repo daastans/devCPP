@@ -15,9 +15,9 @@ c[0]=0.0;
 while(i<n)
 {
   i++;
-a[i]=a[i-1]+(kb*c[i-1]-ka*a[i-1]*b[i-1])*delta;
-b[i]=b[i-1]+(kb*c[i-1]-ka*a[i-1]*b[i-1])*delta;
-c[i]=c[i-1]+2*(ka*a[i-1]*b[i-1]-kb*c[i-1])*delta;
+a[i]=a[i-1]+(kb*c[i-1]-ka*a[i-1]*b[i-1])*delta;         //concentration of a after i seconds
+b[i]=b[i-1]+(kb*c[i-1]-ka*a[i-1]*b[i-1])*delta;         //concentration of b after i seconds
+c[i]=c[i-1]+2*(ka*a[i-1]*b[i-1]-kb*c[i-1])*delta;       //concentration of c after i seconds
 cout<<a[i]<<" "<<b[i]<<"  "<<c[i]<<"  after "<<i<<"ns"<<endl;
 }
 
