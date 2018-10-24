@@ -21,7 +21,7 @@ class Graph
     AdjListNode* createAdjListNode(int);
     void addEdge(int,int);
     void printAdjList();
-
+    void BreadthFirstSearch();
 };
 void Graph:: printAdjList()
 {
@@ -73,6 +73,34 @@ Graph::Graph(int v)
   }
 
 }
+void Graph:: BreadthFirstSearch()
+{
+  //cout<<"CAlled for debug";
+  int* visited=new int[numVertices];        //For Keeping track of unvisited nodes
+
+  for(int i=0;i<numVertices;i++)
+    visited[i]=0;                           //initialising all visited ot zero
+
+  queue <AdjListNode*>q;
+  q.push(AdjListArray[0].head);
+  cout<<"0 visited \n";
+  visited[0]=1;
+  while(!q.empty())
+  {
+    AdjListNode* crawler=q.front();         //getting our first node
+    q.pop();
+    while(crawler)                          //crawler will move form one node to another in graph
+    {
+      if(visited[crawler->value]!=1)        //if we ever encounter a unvisited node
+      {
+        visited[crawler->value]=1;
+        cout<<crawler->value<<" visited \n";
+        q.push(AdjListArray[crawler->value].head);
+      }
+        crawler=crawler->next;
+    }
+}
+}
 int main()
 {
   Graph g(5);
@@ -84,7 +112,8 @@ int main()
   g.addEdge(1, 4);
   g.addEdge(2, 3);
   g.addEdge(3, 4);
-  g.printAdjList();
+  //g.printAdjList();
+  g.BreadthFirstSearch();
   return 0;
 }
 /* output
