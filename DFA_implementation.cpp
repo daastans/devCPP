@@ -7,7 +7,7 @@ int main(void)
 {
   srand(time(0));       //generating random number
   int max= 1 + rand()%15;          //genereating random word length max<=15
-  std::cout << "No of characters "<<max<< '\n';
+  std::cout << "\nNo of characters "<<max<< '\n';
   int i=0;
 
   while(i<max)
@@ -41,7 +41,7 @@ int main(void)
          i++;
          cout<<c<<" ";
       }
-      cout<<"\nString REjected \n Does NOt start with a"<<endl;
+      cout<<"\nString REjected \n Does NOt start with a\n"<<endl;
     }
   }
   return 0;
