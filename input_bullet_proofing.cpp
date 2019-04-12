@@ -1,22 +1,26 @@
 #include <iostream>
 #include<limits>
+//#include<templates>
 using namespace std;
+template <typename T>
 
-int ReadInt(const string& prompt)
+T ReadType(const string& prompt)
 {
-  int n;
+  T n;
   while((cout<<prompt)&&!(cin>>n))
   {
     cout<<"Invalid Input\n";
     cin.clear();
     cin.ignore(numeric_limits<int> ::max(),'\n');
   }
+
+  cin.ignore(numeric_limits<int> ::max(),'\n');
   return n;
 }
 int main() {
   int a, b;
-  a=ReadInt("Enter a : ");
-  b=ReadInt("Enter b : ");
+  a=ReadType<int>("Enter a : ");
+  b=ReadType<int>("Enter b : ");
   cout << "a * b = " << a * b << endl;
   return 0;
 }
