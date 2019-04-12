@@ -2,16 +2,21 @@
 #include<limits>
 using namespace std;
 
-int main() {
-  int a, b;
-  cout << "enter a: ";
-  while(!(cin >> a))
+int ReadInt(const string& prompt)
+{
+  int n;
+  while((cout<<prompt)&&!(cin>>n))
   {
-    cout<<"Invalid input\n";
+    cout<<"Invalid Input\n";
     cin.clear();
     cin.ignore(numeric_limits<int> ::max(),'\n');
   }
-  cout << "enter b: ";
-  cin >> b;
+  return n;
+}
+int main() {
+  int a, b;
+  a=ReadInt("Enter a : ");
+  b=ReadInt("Enter b : ");
   cout << "a * b = " << a * b << endl;
+  return 0;
 }
